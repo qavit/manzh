@@ -11,6 +11,9 @@ dependencies = [
     "typer>=0.24.1",
 ]
 
+[project.scripts]
+manzh = "manzh.cli:app"
+
 [tool.pyright]
 extraPaths = ["."]
 

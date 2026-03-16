@@ -54,9 +54,11 @@ def main(
         # Filter sections to only the requested one for output
         sections = {target_section: sections[target_section]}
     else:
-        typer.echo("Translating... (This might take a few moments depending on the API speed)")
-        for sec_name, sec_text in sections.items():
-            translated_sections[sec_name] = translate_section(command, sec_text, sec_name)
+        from rich.console import Console
+        console = Console()
+        with console.status("[bold green]Translating... (This might take a few moments depending on the API speed)"):
+            for sec_name, sec_text in sections.items():
+                translated_sections[sec_name] = translate_section(command, sec_text, sec_name)
             
     # 4. Format & Output
     if markdown:

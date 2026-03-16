@@ -1,6 +1,4 @@
-def main():
-    print("Hello from manzh!")
-
+from manzh.cli import app
 
 if __name__ == "__main__":
-    main()
+    app()
